@@ -91,18 +91,25 @@ BDA-MDD-Reddit-NLP/
 ├── data/
 │   ├── raw/                    # Raw scraped data (gitignored if large)
 │   └── processed/              # Cleaned, labeled CSVs
+├── notebooks/
+│   └── Assignment_1_PRAW_Extraction.ipynb
 ├── src/
 │   ├── __init__.py
 │   ├── scraper.py              # PullPush API scraper using requests
 │   ├── pipeline.py             # Main Extraction & Cleaning pipeline
 │   └── utils.py                # Helper functions
 ├── docs/
+│   ├── assignments/
+│   │   └── Our_Project_Task.md # Original grading criteria
+│   ├── assets/
+│   │   ├── Reddit_Proxy_API.pdf
+│   │   └── reddit_api_project_brief.md
 │   └── workflow.md             # Workflow documentation (deliverable)
+├── .env.example
 ├── .gitignore
 ├── Context.md                  # This file
 ├── README.md                   # Professional repo README
-├── requirements.txt            # pip dependencies
-└── setup.py / pyproject.toml   # Optional packaging
+└── requirements.txt            # pip dependencies
 ```
 
 ## 9. API Credentials Status

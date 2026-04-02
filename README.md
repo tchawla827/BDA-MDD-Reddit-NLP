@@ -1,5 +1,6 @@
 # MDD Reddit Analytics
-**Big Data Analytics (BDA) Course Project — 6th Semester**
+**Big Data Analytics (BDA) Course Project — 6th Semester**  
+**Domain**: HDA-4 | **Group**: 4
 
 ## Overview
 This repository contains an academic research implementation for text classification. Specifically, we classify and detect Natural Language indicators pointing to Major Depressive Disorder (MDD) symptoms extracted from Reddit self-reports.
@@ -11,8 +12,9 @@ This repository contains an academic research implementation for text classifica
 
 ## Directory Structure
 - `data/` : Ignored by Git. Run the pipeline to generate `raw` and `processed` data.
+- `notebooks/` : Contains the Submission version PRAW notebook (`Assignment_1_PRAW_Extraction.ipynb`).
 - `src/` : Modular, purely `.py` implementation (scraper, pipeline logic).
-- `docs/` : Methodology and pipeline workflow documentation.
+- `docs/` : Methodology workflow, PDF assets, and initial assignment instructions.
 
 ## Installation & Setup
 1. Standardize virtual environment:

@@ -1,0 +1,8 @@
+requests
+pandas
+numpy
+jupyter
+nltk
+vaderSentiment
+tqdm
+scikit-learn

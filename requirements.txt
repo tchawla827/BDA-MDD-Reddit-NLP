@@ -6,3 +6,4 @@ nltk
 vaderSentiment
 tqdm
 scikit-learn
+praw

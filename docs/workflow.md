@@ -16,7 +16,7 @@ We implemented a custom Python object (`PullPushScraper` in `src/scraper.py`) ut
 3. **Filtering at Source:** We excluded submission bodies that were exactly `[removed]` or `[deleted]` to ensure high data quality upfront.
 
 ## 3. Data Cleaning Pipeline
-Conducted entirely within the `notebooks/01_extraction_and_cleaning.ipynb` notebook.
+Conducted strictly through Python object orchestration within `src/pipeline.py`.
 - **Lowercase Conversion:** Normalizes entire strings.
 - **Regex Cleaning:** Removed all HTTP links, special symbols, newlines, and digits, leaving strictly `[a-z\s]`.
 - **Stop Words:** Implemented NLTK's English stop words removal to increase signal-to-noise ratio for TF-IDF / embeddings.

@@ -10,9 +10,8 @@ This repository contains an academic research implementation for text classifica
 - Tavish Chawla (IIT2023150)
 
 ## Directory Structure
-- `data/` : Ignored by Git. Run the notebook to generate `raw` and `processed` data.
-- `notebooks/` : Interactive data extraction, cleaning, and model-training Jupyter Notebooks.
-- `src/` : Modularized, reusable Python components (scraper, preprocessor).
+- `data/` : Ignored by Git. Run the pipeline to generate `raw` and `processed` data.
+- `src/` : Modular, purely `.py` implementation (scraper, pipeline logic).
 - `docs/` : Methodology and pipeline workflow documentation.
 
 ## Installation & Setup
@@ -29,8 +28,11 @@ python -m pip install -r requirements.txt
 ```
 
 ## Running Assignment 1
-To complete the *Data Extraction* assignment, run the core notebook:
+To complete the *Data Extraction* assignment, run the core pipeline Python script:
 1. Open terminal in the project root.
-2. Initialize jupyter `jupyter notebook`
-3. Hit Run-All inside `notebooks/01_extraction_and_cleaning.ipynb`.
-This automatically scrapes PullPush.io, exports `data/raw/reddit_raw.csv`, processes linguistic parameters, and yields `data/processed/reddit_mdd_cleaned.csv`.
+2. Ensure you have activated your environment and installed dependencies.
+3. Run the complete pipeline via terminal:
+```bash
+python src/pipeline.py
+```
+This automatically scrapes PullPush.io, exports `data/raw/reddit_raw.csv`, processes linguistic parameters via NLP layers, and yields the final `data/processed/reddit_mdd_cleaned.csv` all autonomously.

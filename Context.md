@@ -43,9 +43,9 @@
 ### Assignment 1 — Data Extraction (Current) ⬅️
 | Deliverable | Format | Status |
 |---|---|---|
-| Secondary dataset (post IDs, dates, cleaned text, labels) | `.csv` | ⬜ Not Started |
-| Python Notebook for Reddit scraping & cleaning | `.ipynb` / `.py` | ⬜ Not Started |
-| Documentation of workflow | `.md` | ⬜ Not Started |
+| Secondary dataset (post IDs, dates, cleaned text, labels) | `.csv` | ✅ Complete |
+| Python Script for Reddit scraping & cleaning | `.py` | ✅ Complete |
+| Documentation of workflow | `.md` | ✅ Complete |
 
 ### Assignment 2 — Classification & Pipeline (Future)
 | Deliverable | Format | Status |
@@ -66,7 +66,6 @@
 | Embeddings | ClinicalBERT (future — Assignment 2) |
 | ML | scikit-learn (future — Assignment 2) |
 | Data | pandas, numpy |
-| Notebooks | Jupyter |
 | Version Control | Git + GitHub |
 
 ## 7. Data Schema (Target CSV)
@@ -89,17 +88,13 @@
 
 ```
 BDA-MDD-Reddit-NLP/
-├── .venv/                      # Python virtual environment (gitignored)
 ├── data/
 │   ├── raw/                    # Raw scraped data (gitignored if large)
 │   └── processed/              # Cleaned, labeled CSVs
-├── notebooks/
-│   ├── 01_data_extraction.ipynb
-│   └── 02_data_cleaning.ipynb
 ├── src/
 │   ├── __init__.py
 │   ├── scraper.py              # PullPush API scraper using requests
-│   ├── cleaner.py              # Text cleaning & preprocessing
+│   ├── pipeline.py             # Main Extraction & Cleaning pipeline
 │   └── utils.py                # Helper functions
 ├── docs/
 │   └── workflow.md             # Workflow documentation (deliverable)

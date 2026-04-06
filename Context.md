@@ -1,7 +1,7 @@
 # Project Context — BDA: Reddit MDD NLP Corpus
 
 > **Living Document** — Updated throughout the project lifecycle.  
-> Last Updated: 2026-04-02
+> Last Updated: 2026-04-06
 
 ---
 
@@ -40,19 +40,19 @@
 
 ## 5. Assignments & Deliverables
 
-### Assignment 1 — Data Extraction (Current) ⬅️
+### Assignment 1 — Data Extraction
 | Deliverable | Format | Status |
 |---|---|---|
 | Secondary dataset (post IDs, dates, cleaned text, labels) | `.csv` | ✅ Complete |
 | Python Script for Reddit scraping & cleaning | `.py` | ✅ Complete |
 | Documentation of workflow | `.md` | ✅ Complete |
 
-### Assignment 2 — Classification & Pipeline (Future)
+### Assignment 2 — Classification & Pipeline (Current) ⬅️
 | Deliverable | Format | Status |
 |---|---|---|
-| Python Notebook for text classification models | `.ipynb` | ⬜ Not Started |
-| Documentation of methods and results | `.md` | ⬜ Not Started |
-| Automated pipeline for quarterly updates | `.py` | ⬜ Not Started |
+| Python Notebook for text classification models | `.ipynb` | ✅ Complete |
+| Documentation of methods and results | `.md` | ✅ Complete |
+| Automated pipeline for quarterly updates | `.py` | ✅ Complete |
 
 ## 6. Tech Stack
 
@@ -63,8 +63,8 @@
 | API | PullPush / Pushshift API (No authentication required) |
 | Requests | `requests` (Python HTTP library) |
 | NLP | NLTK, spaCy, regex |
-| Embeddings | ClinicalBERT (future — Assignment 2) |
-| ML | scikit-learn (future — Assignment 2) |
+| Embeddings | ClinicalBERT (Assignment 2) |
+| ML | scikit-learn (Assignment 2) |
 | Data | pandas, numpy |
 | Version Control | Git + GitHub |
 
@@ -92,11 +92,13 @@ BDA-MDD-Reddit-NLP/
 │   ├── raw/                    # Raw scraped data (gitignored if large)
 │   └── processed/              # Cleaned, labeled CSVs
 ├── notebooks/
-│   └── Assignment_1_PRAW_Extraction.ipynb
+│   ├── Assignment_1_PRAW_Extraction.ipynb
+│   └── 02_text_classification_models.ipynb     # TF-IDF & ClinicalBERT
 ├── src/
 │   ├── __init__.py
 │   ├── scraper.py              # PullPush API scraper using requests
 │   ├── pipeline.py             # Main Extraction & Cleaning pipeline
+│   ├── quarterly_updater.py    # Automation Daemon script (schedule)
 │   └── utils.py                # Helper functions
 ├── docs/
 │   ├── assignments/
@@ -104,6 +106,7 @@ BDA-MDD-Reddit-NLP/
 │   ├── assets/
 │   │   ├── Reddit_Proxy_API.pdf
 │   │   └── reddit_api_project_brief.md
+│   ├── methods_and_results.md  # Final Evaluation Document
 │   └── workflow.md             # Workflow documentation (deliverable)
 ├── .env.example
 ├── .gitignore
@@ -125,7 +128,8 @@ BDA-MDD-Reddit-NLP/
 |---|---|---|
 | 2026-04-02 | Project initiated | Assignment 1 released by Prof. Sonali Agarwal |
 | 2026-04-02 | Reddit API access requested | Needed for PRAW-based data extraction |
-| — | — | — |
+| 2026-04-06 | ClinicalBERT hardware optimization | Dynamic GPU (Colab) scaling implemented to speed up vectorization |
+| 2026-04-06 | Colab Github Auth Secret Sync | Integrated dynamic repo sync to fix absolute filepath breakages in cloud rendering |
 
 ## 11. Risks & Mitigations
 

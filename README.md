@@ -205,15 +205,32 @@ Simply open the notebook locally. The hardware-detection logic will:
 - Automatically fall back to CPU
 - Subsample the dataset to **2,000 rows** for faster processing
 
-### Quarterly Automation
+### Quarterly Automation (CI/CD)
 
-A long-running daemon that re-executes the full pipeline every 90 days:
+The dataset is **automatically refreshed every quarter** via a GitHub Actions workflow — no local machine needed.
+
+| Property | Value |
+|:---|:---|
+| **Schedule** | 1st of Jan, Apr, Jul, Oct (00:00 UTC) |
+| **Trigger** | Cron schedule + manual `workflow_dispatch` |
+| **Workflow File** | [`.github/workflows/quarterly_update.yml`](.github/workflows/quarterly_update.yml) |
+
+The workflow checks out the repo, runs `src/pipeline.py` on a GitHub-hosted runner, and commits the refreshed CSV back to `data/`.
+
+> **Manual trigger:** Go to *Actions → Quarterly Dataset Update → Run workflow* to refresh on demand.
+
+<details>
+<summary>📌 Local fallback (optional)</summary>
+
+If you prefer running locally, a standalone daemon script is also available:
 
 ```bash
 python src/quarterly_updater.py
 ```
 
-> The scheduler uses the [`schedule`](https://pypi.org/project/schedule/) library and runs persistently in the foreground. Terminate with `Ctrl+C`.
+This uses the [`schedule`](https://pypi.org/project/schedule/) library and runs persistently in the foreground. Terminate with `Ctrl+C`.
+
+</details>
 
 ---
 

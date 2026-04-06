@@ -108,6 +108,9 @@ BDA-MDD-Reddit-NLP/
 │   │   └── reddit_api_project_brief.md
 │   ├── methods_and_results.md  # Final Evaluation Document
 │   └── workflow.md             # Workflow documentation (deliverable)
+├── .github/
+│   └── workflows/
+│       └── quarterly_update.yml # CI/CD: auto-refresh dataset every quarter
 ├── .env.example
 ├── .gitignore
 ├── Context.md                  # This file
@@ -130,6 +133,7 @@ BDA-MDD-Reddit-NLP/
 | 2026-04-02 | Reddit API access requested | Needed for PRAW-based data extraction |
 | 2026-04-06 | ClinicalBERT hardware optimization | Dynamic GPU (Colab) scaling implemented to speed up vectorization |
 | 2026-04-06 | Colab Github Auth Secret Sync | Integrated dynamic repo sync to fix absolute filepath breakages in cloud rendering |
+| 2026-04-06 | Quarterly automation → GitHub Actions | Replaced local `schedule` daemon with CI/CD cron workflow for zero-maintenance refresh |
 
 ## 11. Risks & Mitigations
 

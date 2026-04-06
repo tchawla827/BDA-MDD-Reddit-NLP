@@ -63,40 +63,41 @@ Full analysis → [`docs/methods_and_results.md`](docs/methods_and_results.md)
 
 ## 🏗 Architecture
 
-```
-                   ┌─────────────────────┐
-                   │   Reddit (PullPush)  │
-                   │  r/depression        │
-                   │  r/SuicideWatch      │
-                   │  r/CasualConversation│
-                   └────────┬────────────┘
-                            │
-                   ┌────────▼────────────┐
-                   │    src/scraper.py    │
-                   │  (PullPush Proxy)    │
-                   └────────┬────────────┘
-                            │
-                   ┌────────▼────────────┐
-                   │   src/pipeline.py    │
-                   │  Regex · NLTK · VADER│
-                   └────────┬────────────┘
-                            │
-              ┌─────────────┴─────────────┐
-              │                           │
-     ┌────────▼─────────┐      ┌──────────▼──────────┐
-     │  Track A (CPU)   │      │  Track B (GPU/CPU)   │
-     │  TF-IDF (5k feat)│      │  Bio_ClinicalBERT   │
-     │  Logistic Reg.   │      │  768-dim embeddings  │
-     │                  │      │  Random Forest       │
-     └────────┬─────────┘      └──────────┬───────────┘
-              │                           │
-              └──────────┬────────────────┘
-                         │
-                ┌────────▼────────┐
-                │   Evaluation    │
-                │ Accuracy · F1   │
-                │ Confusion Matrix│
-                └─────────────────┘
+```mermaid
+flowchart TD
+    A["🌐 Reddit (PullPush Proxy)"] --> B["src/scraper.py"]
+    
+    subgraph DataSources ["Data Sources"]
+        A1["r/depression"] --> A
+        A2["r/SuicideWatch"] --> A
+        A3["r/CasualConversation"] --> A
+    end
+
+    B --> C["src/pipeline.py\nRegex · NLTK · VADER"]
+    C --> D["reddit_mdd_cleaned.csv\n~10,000 posts"]
+
+    D --> E["Track A — Classical NLP\n(CPU)"]
+    D --> F["Track B — Deep NLP\n(GPU / CPU)"]
+
+    subgraph TrackA ["Baseline Track"]
+        E --> E1["TF-IDF Vectorizer\n5,000 features · unigrams + bigrams"]
+        E1 --> E2["Logistic Regression\nbalanced class weights"]
+    end
+
+    subgraph TrackB ["Advanced Track"]
+        F --> F1["Bio_ClinicalBERT\n768-dim dense embeddings"]
+        F1 --> F2["Random Forest\n100 estimators"]
+    end
+
+    E2 --> G["📊 Evaluation\nAccuracy · F1 · Confusion Matrix"]
+    F2 --> G
+
+    style A fill:#4A90D9,stroke:#333,color:#fff
+    style C fill:#6C5CE7,stroke:#333,color:#fff
+    style D fill:#00B894,stroke:#333,color:#fff
+    style G fill:#E17055,stroke:#333,color:#fff
+    style E fill:#FDCB6E,stroke:#333,color:#333
+    style F fill:#FDCB6E,stroke:#333,color:#333
 ```
 
 ---

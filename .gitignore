@@ -18,7 +18,7 @@ __pycache__/
 # Data
 data/raw/*
 !data/raw/.gitkeep
-data/processed/*
+# data/processed/* (Un-ignored to permit Google Colab syncing)
 !data/processed/.gitkeep
 
 # OS generated files

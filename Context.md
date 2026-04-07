@@ -107,7 +107,8 @@ BDA-MDD-Reddit-NLP/
 │   │   ├── Reddit_Proxy_API.pdf
 │   │   └── reddit_api_project_brief.md
 │   ├── methods_and_results.md  # Final Evaluation Document
-│   └── workflow.md             # Workflow documentation (deliverable)
+│   ├── workflow.md             # Workflow documentation (deliverable)
+│   └── team_work_division.md   # Group work allocation cheat sheet
 ├── .github/
 │   └── workflows/
 │       └── quarterly_update.yml # CI/CD: auto-refresh dataset every quarter

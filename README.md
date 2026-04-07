@@ -128,7 +128,8 @@ BDA-MDD-Reddit-NLP/
 │   │   └── Our_Project_Task.md               # Original grading rubric
 │   ├── assets/                               # Reference PDFs & briefs
 │   ├── methods_and_results.md                # Evaluation report
-│   └── workflow.md                           # Data pipeline documentation
+│   ├── workflow.md                           # Data pipeline documentation
+│   └── team_work_division.md                 # Group work allocation cheat sheet
 │
 ├── .env.example                              # Environment variable template
 ├── .gitignore
